@@ -1,29 +1,16 @@
 <?php
 
 class Chien {
-    public $_race;
-    public $_age;
-    public $_poids;
-
-    /**
-     * Chien constructor.
-     * @param $_race
-     * @param $_age
-     * @param $_poids
-     */
-    public function __construct($_race, $_age, $_poids)
-    {
-        $this->_race = $_race;
-        $this->_age = $_age;
-        $this->_poids = $_poids;
-    }
+    public $race;
+    public $age;
+    public $poids;
 
     /**
      * @return mixed
      */
     public function getRace()
     {
-        return $this->_race;
+        return $this->race;
     }
 
     /**
@@ -31,7 +18,7 @@ class Chien {
      */
     public function setRace($race): void
     {
-        $this->_race = $race;
+        $this->race = $race;
     }
 
     /**
@@ -39,7 +26,7 @@ class Chien {
      */
     public function getAge()
     {
-        return $this->_age;
+        return $this->age;
     }
 
     /**
@@ -47,7 +34,7 @@ class Chien {
      */
     public function setAge($age): void
     {
-        $this->_age = $age;
+        $this->age = $age;
     }
 
     /**
@@ -55,7 +42,7 @@ class Chien {
      */
     public function getPoids()
     {
-        return $this->_poids;
+        return $this->poids;
     }
 
     /**
@@ -63,16 +50,21 @@ class Chien {
      */
     public function setPoids($poids): void
     {
-        $this->_poids = $poids;
+        $this->poids = $poids;
+    }
+
+    public function getCaracteristiques()
+    {
+        return '<p>Race: '.$this->race.', Âge: '.$this->age.', Poids: '.$this->poids.'</p>';
     }
 
     public function ajouterPoids($poids)
     {
-        $this->_poids = $poids+1;
+        $this->poids += $poids;
     }
 
     public function ajouterAge($age)
     {
-        $this->_age = $age+1;
+        $this->age = $age+1;
     }
 }

@@ -4,17 +4,9 @@ class Vehicule {
     public $_puissance;
     public $_kilometrage;
 
-    /**
-     * Vehicule constructor.
-     * @param $_marque
-     * @param $_puissance
-     * @param $_kilometrage
-     */
-    public function __construct($_marque, $_puissance, $_kilometrage)
+    public function getCaracteristiques()
     {
-        $this->_marque = $_marque;
-        $this->_puissance = $_puissance;
-        $this->_kilometrage = $_kilometrage;
+        return '<p>Marque: '.$this->_marque.', Puissance: '.$this->_puissance.', Kilométrage: '.$this->_kilometrage.'</p>';
     }
 
     /**
