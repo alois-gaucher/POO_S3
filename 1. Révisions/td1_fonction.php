@@ -9,13 +9,16 @@
 <?php
 // Déclaration de la fonction
 function affichage_footer($iut, $departement, $module){
-    echo "<footer>";
-        echo "<div>";
-            echo '<p>'.$iut.'</p>';
-            echo '<p>'.$departement.'</p>';
-            echo '<p>'.$module.'</p>';
-        echo "</div>";
-    echo "</footer>";
+    $description =
+        '<footer>
+            <div>
+                <p>'.$iut.'</p>
+                <p>'.$departement.'</p>
+                <p>'.$module.'</p>
+            </div>
+        </footer>';
+
+    return $description;
 }
 
 // Appel de la fonction
