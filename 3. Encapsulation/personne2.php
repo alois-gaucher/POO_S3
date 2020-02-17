@@ -14,10 +14,11 @@ class Personne2 {
     private $age;
 
     // Définition de la fonction constructeur
-    public function __construct($n,$p,$a) {
-        $this->setNom($n);
-        $this->prenom=$p;
-        $this->age=$a;
+    public function __construct($prenom, $nom, $age)
+    {
+        $this->prenom = $prenom;
+        $this->nom = $nom;
+        $this->age = $age;
     }
 
     // Définition du comportement sePresente()
@@ -29,5 +30,14 @@ class Personne2 {
     public function setNom($n){
         $this->nom=strtoupper($n);
     }
+
+    /**
+     * @return mixed
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
 }
 ?>
