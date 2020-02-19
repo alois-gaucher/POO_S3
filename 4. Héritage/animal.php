@@ -1,4 +1,6 @@
 <?php
+
+// Classe Animal
 class Animal {
     public $nom;
     public $age_actuel;
@@ -49,6 +51,42 @@ class Animal {
             echo $value .'<br>';
         }
     }
-
 }
+
+// Classe héritée de "Animaux"
+class Chien extends Animal {
+    public $nom_familier;
+    public $age_theorique = 18;
+
+    // Chien constructor.
+    public function __construct($nom,$age_actuel,$age_theorique,$nom_familier)
+    {
+        parent::__construct($nom, $age_actuel, $age_theorique);
+        $this->nom_familier = $nom_familier;
+    }
+
+    public function seNomme() {
+        echo 'Le chien se nomme: ' .$this->nom_familier.'<br>';
+    }
+
+    public function vieillir($nbannees) {
+        if ($this->etat == 'vivant') {
+            if ($this->age_actuel + $nbannees <= $this->age_theorique) {
+                $this->age_actuel = $this->age_actuel + $nbannees;
+                echo 'L\'animal a maintenant ' . $this->age_actuel . ' ans <br>';
+            }
+            else {
+                echo 'L\'animal est trop vieux maintenant, il est mort !<br>';
+            }
+        }
+        else {
+            echo 'Un animal mort ne peut pas vieillir ! <br>';
+        }
+    }
+
+    public function lire_informations() {
+        echo 'Nom familier: '.$this->nom_familier.' Nom: '.$this->nom.' Âge: '.$this->age_actuel.' Âge théorique: '.$this->age_theorique.' Etat: '.$this->etat.'<br>';
+    }
+}
+
 ?>

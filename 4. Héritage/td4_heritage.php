@@ -22,4 +22,9 @@ $bestiole->lire_informations();
 $bestiole->vieillir(6);
 // Appeler la méthode : lire_informations()
 $bestiole->lire_informations();
+
+$chien1 = new Chien('Chien', 1, 18, 'Médor');
+$chien1->lire_informations();
+$chien1->seNomme();
+$chien1->vieillir(4);
 ?>
