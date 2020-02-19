@@ -1,4 +1,9 @@
 <?php
+/**
+ * Copyright (c) Aloïs GAUCHER 2020.
+ * https://alois-gaucher.fr/ - https://github.com/couquino
+ */
+
 // Déclaration de la fonction
 function affichage_footer($iut, $departement, $module){
         $html = '<footer>

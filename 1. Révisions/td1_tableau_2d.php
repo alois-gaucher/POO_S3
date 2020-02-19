@@ -1,4 +1,9 @@
 <?php
+/**
+ * Copyright (c) Aloïs GAUCHER 2020.
+ * https://alois-gaucher.fr/ - https://github.com/couquino
+ */
+
 // Déclaration d'un tableau 2 dimension
 $tableau_notes = array();
 // Ajout de données,$tableau_notes est un tableau de tableau

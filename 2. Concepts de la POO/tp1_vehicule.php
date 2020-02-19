@@ -1,4 +1,9 @@
 <?php
+/**
+ * Copyright (c) Aloïs GAUCHER 2020.
+ * https://alois-gaucher.fr/ - https://github.com/couquino
+ */
+
 require ('vehicule.php');
 
 // Création du 1er véhicule

@@ -1,4 +1,9 @@
 <?php
+/**
+ * Copyright (c) Aloïs GAUCHER 2020.
+ * https://alois-gaucher.fr/ - https://github.com/couquino
+ */
+
 // Déclaration d'un tableau 1 dimension
 $tableau_notes = array(12, 14, 10);
 echo '<br>';
