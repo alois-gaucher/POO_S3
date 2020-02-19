@@ -59,9 +59,9 @@ class Chien extends Animal {
     public $age_theorique = 18;
 
     // Chien constructor.
-    public function __construct($nom,$age_actuel,$age_theorique,$nom_familier)
+    public function __construct($nom,$age_actuel,$nom_familier)
     {
-        parent::__construct($nom, $age_actuel, $age_theorique);
+        parent::__construct($nom, $age_actuel, 18);
         $this->nom_familier = $nom_familier;
     }
 
