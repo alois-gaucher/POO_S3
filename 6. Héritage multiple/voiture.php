@@ -7,7 +7,7 @@
 abstract class VehiculeAMoteur {
     protected $typemoteur;
     protected $nombrepassagers;
-    static protected $nombrevehicules;
+    static $nombrevehicules;
 
     /**
      * VehiculeAMoteur constructor.
@@ -18,6 +18,8 @@ abstract class VehiculeAMoteur {
     {
         $this->typemoteur = $typemoteur;
         $this->nombrepassagers = $nombrepassagers;
+
+        self::$nombrevehicules++;
     }
 
     public function verificationtype($type)
@@ -60,8 +62,7 @@ class Voiture extends VehiculeAMoteur {
 
     public function lirecaracteristiques()
     {
-        return 'La voiture est une voiture '.$this->typemoteur.', elle comporte '.$this->nombrepassagers.' places. <br>';
-        return 'Elle est de marque '.$this->marque.' et son moteur développe '.$this->puissance.' chevaux. <br>';
+        return 'La voiture est une voiture '.$this->typemoteur.', elle comporte '.$this->nombrepassagers.' places. <br>Elle est de marque '.$this->marque.' et son moteur développe '.$this->puissance.' chevaux. <br>';
     }
 }
 
@@ -71,13 +72,54 @@ final class VoitureDeSport extends Voiture {
     public function __construct($typemoteur, $nombrepassagers, $marque, $puissance, $zeroacent)
     {
         parent::__construct($typemoteur, $nombrepassagers, $marque, $puissance);
-        $this->zeroacent = $zeroacent
+        $this->zeroacent = $zeroacent;
     }
 
     public function lirecaracteristiques()
     {
-        return 'La voiture est une voiture '.$this->typemoteur.', elle comporte '.$this->nombrepassagers.' places. <br>';
-        return 'Elle est de marque '.$this->marque.' et son moteur développe '.$this->puissance.' chevaux et permet un 0 à 100 km/h en '.$this->zeroacent.' secondes. <br>';
+        return 'La voiture est une voiture '.$this->typemoteur.', elle comporte '.$this->nombrepassagers.' places. <br>Elle est de marque '.$this->marque.' et son moteur développe '.$this->puissance.' chevaux et permet un 0 à 100 km/h en '.$this->zeroacent.' secondes. <br>';
+    }
+}
+
+final class VoitureTourisme extends Voiture {
+    protected $consommation;
+    protected $kilometrage;
+
+    public function __construct($typemoteur, $nombrepassagers, $marque, $puissance, $consommation)
+    {
+        parent::__construct($typemoteur, $nombrepassagers, $marque, $puissance);
+        $this->consommation = $consommation;
+    }
+
+    public function lirecaracteristiques()
+    {
+        return 'La voiture est une voiture '.$this->typemoteur.', elle comporte '.$this->nombrepassagers.' places. <br>Elle est de marque '.$this->marque.' et son moteur développe '.$this->puissance.' chevaux et consomme '.$this->consommation.'L/100km et compte'.$this->kilometrage.' kms.<br>';
+    }
+
+    /**
+     * @param $distance
+     * @param mixed $kilometrage
+     */
+    public function utiliser($distance)
+    {
+        $this->kilometrage = $kilometrage + $distance;
+    }
+}
+
+final class Camion extends VehiculeAMoteur {
+    protected $tonnage;
+    protected $nbessieux;
+
+    public function __construct($typemoteur, $nombrepassagers, $marque, $puissance, $tonnage, $nbessieux)
+    {
+        parent::__construct($typemoteur, $nombrepassagers, $marque, $puissance);
+        $this->tonnage = $tonnage;
+        $this->nbessieux = $nbessieux;
+    }
+
+    public function lirecaracteristiques()
+    {
+        return 'Le camion est de type '.$this->typemoteur.', il comporte '.$this->nombrepassagers.' places. <br>Il est de marque '.$this->marque.' et son moteur développe '.$this->puissance.' chevaux et compte'.$this->kilometrage.' kms. De plus, il est de tonnage '.$this->tonnage.' et comporte '.$this->nbessieux.' essieux.<br>';
     }
 }
 
