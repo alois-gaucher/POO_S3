@@ -93,7 +93,7 @@ final class VoitureTourisme extends Voiture {
 
     public function lirecaracteristiques()
     {
-        return 'La voiture est une voiture '.$this->typemoteur.', elle comporte '.$this->nombrepassagers.' places. <br>Elle est de marque '.$this->marque.' et son moteur développe '.$this->puissance.' chevaux et consomme '.$this->consommation.'L/100km et compte'.$this->kilometrage.' kms.<br>';
+        return 'La voiture est une voiture '.$this->typemoteur.', elle comporte '.$this->nombrepassagers.' places. <br>Elle est de marque '.$this->marque.' et son moteur développe '.$this->puissance.' chevaux et consomme '.$this->consommation.'L/100km et compte '.$this->kilometrage.' kms.<br>';
     }
 
     /**
