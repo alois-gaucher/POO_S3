@@ -100,7 +100,7 @@ final class VoitureTourisme extends Voiture {
      * @param $distance
      * @param mixed $kilometrage
      */
-    public function utiliser($distance)
+    public function utiliser(int $distance)
     {
         $this->kilometrage = $kilometrage + $distance;
     }
