@@ -293,6 +293,7 @@ class Etudiant extends Individu
         {
             $this->setResultat('Ajourné(e)');
         }
+        return $this->getResultat();
     }
 
 }
