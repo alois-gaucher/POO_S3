@@ -14,7 +14,7 @@ interface iHumain
 
 abstract class Individu implements iHumain
 {
-    private $nombreindividus;
+    static $nombreindividus;
     private $nom;
     private $prenom;
     private $sexe;
@@ -31,22 +31,22 @@ abstract class Individu implements iHumain
     {
         $this->nom = $nom;
         $this->prenom = $prenom;
-        if ($sexe (is_string('H')))
+        if (is_string('H'))
         {
             $this->sexe = $sexe;
         }
-        if ($sexe (is_string('F')))
+        if (is_string('F'))
         {
             $this->sexe = $sexe;
         }
         else return 'ERROR';
 
-        $this->nombreindividus + 1;
+        self::$nombreindividus++;
     }
 
     public function getNombreIndividus()
     {
-        return $this->nombreindividus;
+        return self::$nombreindividus;
     }
 
     public function __destruct()
