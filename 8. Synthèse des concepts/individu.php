@@ -17,7 +17,7 @@ abstract class Individu implements iHumain
     private $nom;
     private $prenom;
     private $sexe;
-    private $revenu = 0;
+    protected $revenu = 0;
     private $conges = 0;
 
     /**
@@ -32,11 +32,11 @@ abstract class Individu implements iHumain
         $this->prenom = $prenom;
         if ($sexe (is_string('H')))
         {
-            $this->setSexe($sexe);
+            $this->sexe = $sexe;
         }
         if ($sexe (is_string('F')))
         {
-            $this->setSexe($sexe);
+            $this->sexe = $sexe;
         }
         else return 'ERROR';
     }
@@ -124,7 +124,7 @@ abstract class Individu implements iHumain
     // Incrémente la variable $revenu en fonction du nombre d'heures travaillées
     public function travailler($nombreheures)
     {
-        $this->setRevenu($this->revenu + 9.5 * $nombreheures);
+        $this->setRevenu($this->getRevenu() + 9.5 * $nombreheures);
         $html = 'L\'individu '.$this->getNom().$this->getPrenom().' a travaillé '.$nombreheures.' heures.';
         return $html;
     }
@@ -132,7 +132,7 @@ abstract class Individu implements iHumain
     // Incrémente la variable $conges en fonction du nombre de jours de congés
     public function reposer($nombrejours)
     {
-        $this->setConges($this->conges + $nombrejours);
+        $this->setConges($this->getConges() + $nombrejours);
         $html = 'L\'individu '.$this->getNom().$this->getPrenom().' s\'est reposé '.$nombrejours.' jours.';
         return $html;
     }
@@ -175,6 +175,113 @@ class Etudiant extends Individu
     private $age;
     private $formation;
     private $resultat;
+
+    public function __construct($nom, $prenom, $sexe, $numetudiant, $age, $formation)
+{
+    parent::__construct($nom, $prenom, $sexe);
+    $this->numetudiant = $numetudiant;
+    $this->age = $age;
+    $this->formation = $formation;
+}
+
+    /**
+     * @return mixed
+     */
+    public function getNumetudiant()
+    {
+        return $this->numetudiant;
+    }
+
+    /**
+     * @param mixed $numetudiant
+     */
+    public function setNumetudiant($numetudiant): void
+    {
+        $this->numetudiant = $numetudiant;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    /**
+     * @param mixed $age
+     */
+    public function setAge($age): void
+    {
+        if (is_int($age))
+        {
+            $this->age = $age;
+        }
+        else
+        {
+            echo 'ERROR';
+        }
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFormation()
+    {
+        return $this->formation;
+    }
+
+    /**
+     * @param mixed $formation
+     */
+    public function setFormation($formation): void
+    {
+        $this->formation = $formation;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getResultat()
+    {
+        return $this->resultat;
+    }
+
+    /**
+     * @param mixed $resultat
+     */
+    public function setResultat($resultat): void
+    {
+        $this->resultat = $resultat;
+    }
+
+    public function travailler($nombreheures)
+    {
+        if ($this->age >= 18)
+        {
+            $this->setRevenu($this->getRevenu() + (9.5 * $nombreheures));
+            $html = 'L\'individu '.$this->getNom().$this->getPrenom().' a travaillé '.$nombreheures.' heures.';
+        }
+        else
+        {
+            $this->setRevenu($this->getRevenu() + ((9.5*0.8) * $nombreheures));
+            $html = 'L\'individu '.$this->getNom().$this->getPrenom().' a travaillé '.$nombreheures.' heures.';
+        }
+        return $html;
+    }
+
+    public function evaluer($noteExamen)
+    {
+        if ($noteExamen >= 10)
+        {
+            $this->setResultat('Reçu(e)');
+        }
+        else
+        {
+            $this->setResultat('Ajourné(e)');
+        }
+    }
+
 }
 
 ?>
