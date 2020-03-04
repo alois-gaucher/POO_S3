@@ -46,7 +46,7 @@ abstract class Individu implements iHumain
 
     public function getNombreIndividus()
     {
-        return self::$nombreindividus;
+        return self::$nombreindividus.' Individus ont été instanciés <br>';
     }
 
     public function __destruct()

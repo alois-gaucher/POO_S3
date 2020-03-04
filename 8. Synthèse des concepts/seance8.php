@@ -22,7 +22,7 @@ echo Etudiant::getNombreIndividus();
 // Instanciation
 $individu1=new Etudiant('DURAND','Paul','H','1234567890A','GEA',16);
 // Paul Durand se présente
-echo $individu1->sePresente().'<br>';
+echo $individu1->sePresente();
 // Paul Durand travaille 35 heures
 echo $individu1->travailler(35);
 // Paul Durand prend 2 jours de congés
@@ -57,7 +57,7 @@ echo '-------------Début etape 2--------------------------------<br>';
 // Instanciation
 $individu2=new Etudiant('RANDOM','Student','F','9012345678B','TC',18);
 // Sarah Fraichi se présente
-echo $individu2->sePresente().'<br>';
+echo $individu2->sePresente();
 // Sarah Fraichi travaille 20 heures
 echo $individu2->travailler(20);
 //  Déclaration du salaire de Sarah Fraichi
@@ -86,7 +86,7 @@ echo '-------------Début etape 4--------------------------------<br>';
 // Instanciation
 $individu4=new Etudiant_mmi('HONTOI','Franck','H','6789012345C','SRC',18,'Web avancé');
 // Franck Hontoi se présente
-echo $individu4->sePresente().'<br>';
+echo $individu4->sePresente();
 // Franck Hontoi travaille 35 heures
 echo $individu4->travailler(35);
 // Franck Hontoi déclare ses revenus
