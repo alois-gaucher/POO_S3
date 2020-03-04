@@ -12,7 +12,7 @@ interface iHumain
     public function sePresente();
 }
 
-class Individu
+abstract class Individu implements iHumain
 {
     private $nom;
     private $prenom;
@@ -30,11 +30,11 @@ class Individu
     {
         $this->nom = $nom;
         $this->prenom = $prenom;
-        if ($sexe is_string('H'))
+        if ($sexe (is_string('H')))
         {
             $this->setSexe($sexe);
         }
-        if ($sexe is_string('F'))
+        if ($sexe (is_string('F')))
         {
             $this->setSexe($sexe);
         }
@@ -171,7 +171,10 @@ class Individu
 
 class Etudiant extends Individu
 {
-
+    private $numetudiant;
+    private $age;
+    private $formation;
+    private $resultat;
 }
 
 ?>
