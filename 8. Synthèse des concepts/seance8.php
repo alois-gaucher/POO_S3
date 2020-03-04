@@ -20,7 +20,7 @@ echo '-------------Début etape 1--------------------------------<br>';
 // Nombre d'individus
 echo Etudiant::getNombreIndividus();
 // Instanciation
-$individu1=new Etudiant('Durand','Paul','H','1234567890A','GEA',16);
+$individu1=new Etudiant('DURAND','Paul','H','1234567890A','GEA',16);
 // Paul Durand se présente
 echo $individu1->sePresente().'<br>';
 // Paul Durand travaille 35 heures
@@ -55,7 +55,7 @@ echo '---------------fin etape 1--------------------------------<br>';
   ========================================== */
 echo '-------------Début etape 2--------------------------------<br>';
 // Instanciation
-$individu2=new Etudiant('Fraichi','Sarah','F','9012345678B','TC',18);
+$individu2=new Etudiant('RANDOM','Student','F','9012345678B','TC',18);
 // Sarah Fraichi se présente
 echo $individu2->sePresente().'<br>';
 // Sarah Fraichi travaille 20 heures
@@ -84,7 +84,7 @@ echo '---------------fin etape 3--------------------------------<br>';
   ========================================== */
 echo '-------------Début etape 4--------------------------------<br>';
 // Instanciation
-$individu4=new Etudiant_mmi('Hontoi','Franck','H','6789012345C','SRC',18,'Web avancé');
+$individu4=new Etudiant_mmi('HONTOI','Franck','H','6789012345C','SRC',18,'Web avancé');
 // Franck Hontoi se présente
 echo $individu4->sePresente().'<br>';
 // Franck Hontoi travaille 35 heures

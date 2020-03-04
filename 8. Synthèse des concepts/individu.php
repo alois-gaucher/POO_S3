@@ -184,6 +184,7 @@ abstract class Individu implements iHumain
 
 class Etudiant extends Individu
 {
+    static $nbetudiants;
     private $numetudiant;
     private $age;
     private $formation;
@@ -195,6 +196,7 @@ class Etudiant extends Individu
     $this->numetudiant = $numetudiant;
     $this->age = $age;
     $this->formation = $formation;
+    self::$nbetudiants++;
 }
 
     /**
@@ -218,7 +220,7 @@ class Etudiant extends Individu
      */
     public function getAge()
     {
-        return $this->age;
+        return $this->age.'<br>';
     }
 
     /**
@@ -296,6 +298,47 @@ class Etudiant extends Individu
         return $this->getResultat();
     }
 
+}
+
+final class Etudiant_MMI extends Etudiant
+{
+    private $option;
+
+    public function __construct($nom, $prenom, $sexe, $numetudiant, $age, $formation, $option)
+    {
+        parent::__construct($nom, $prenom, $sexe, $numetudiant, $age, $formation);
+        $this->option = $option;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOption()
+    {
+        return $this->option;
+    }
+
+    /**
+     * @param mixed $option
+     */
+    public function changerOption($option): void
+    {
+        $this->option = $option;
+    }
+
+    // Retourne le nom, le prénom et l'option de l'étudiant
+    public function quelleOption()
+    {
+        $html = 'Bonjour, je m\'apppelle '.$this->getNom().' '.$this->getPrenom().', je suis en option '.$this->getOption().'. <br>';
+        return $html;
+    }
+
+    // Retourne une phrase simple comprenant le nom et le prénom de l'individu
+    public function sePresente()
+    {
+        $html = 'Bonjour, je m\'apppelle '.$this->getNom().' '.$this->getPrenom().'et je suis en MMI. <br>';
+        return $html;
+    }
 }
 
 ?>
