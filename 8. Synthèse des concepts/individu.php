@@ -8,7 +8,9 @@
 interface iHumain
 {
     public function travailler($nombreheures);
+
     public function reposer($nombrejours);
+
     public function sePresente();
 }
 
@@ -31,22 +33,19 @@ abstract class Individu implements iHumain
     {
         $this->nom = $nom;
         $this->prenom = $prenom;
-        if (is_string('H'))
-        {
+        if (is_string('H')) {
             $this->sexe = $sexe;
         }
-        if (is_string('F'))
-        {
+        if (is_string('F')) {
             $this->sexe = $sexe;
-        }
-        else return 'ERROR';
+        } else return 'ERROR';
 
         self::$nombreindividus++;
     }
 
     public function getNombreIndividus()
     {
-        return self::$nombreindividus.' Individus ont été instanciés <br>';
+        return self::$nombreindividus . ' Individus ont été instanciés <br>';
     }
 
     public function __destruct()
@@ -138,7 +137,7 @@ abstract class Individu implements iHumain
     public function travailler($nombreheures)
     {
         $this->setRevenu($this->getRevenu() + 9.5 * $nombreheures);
-        $html = 'L\'individu '.$this->getNom().' '.$this->getPrenom().' a travaillé '.$nombreheures.' heures. <br>';
+        $html = 'L\'individu ' . $this->getNom() . ' ' . $this->getPrenom() . ' a travaillé ' . $nombreheures . ' heures. <br>';
         return $html;
     }
 
@@ -146,14 +145,14 @@ abstract class Individu implements iHumain
     public function reposer($nombrejours)
     {
         $this->setConges($this->getConges() + $nombrejours);
-        $html = 'L\'individu '.$this->getNom().' '.$this->getPrenom().' s\'est reposé '.$nombrejours.' jours. <br>';
+        $html = 'L\'individu ' . $this->getNom() . ' ' . $this->getPrenom() . ' s\'est reposé ' . $nombrejours . ' jours. <br>';
         return $html;
     }
 
     // Retourne une phrase simple comprenant le nom et le prénom de l'individu
     public function sePresente()
     {
-        $html = 'Bonjour, je m\'apppelle '.$this->getNom().' '.$this->getPrenom().'. <br>';
+        $html = 'Bonjour, je m\'apppelle ' . $this->getNom() . ' ' . $this->getPrenom() . '. <br>';
         return $html;
     }
 
@@ -176,7 +175,7 @@ abstract class Individu implements iHumain
     // Retourne une phrase simple contenant le nom, le prénom ainsi que les revenus de l'individu
     public function DeclareSalaire()
     {
-        $html = 'Je suis '.$this->getNom().' '.$this->getPrenom().' et j\'ai gagné '.$this->getRevenu().'€ Cette année. <br>';
+        $html = 'Je suis ' . $this->getNom() . ' ' . $this->getPrenom() . ' et j\'ai gagné ' . $this->getRevenu() . '€ Cette année. <br>';
         return $html;
     }
 
@@ -191,13 +190,13 @@ class Etudiant extends Individu
     private $resultat;
 
     public function __construct($nom, $prenom, $sexe, $numetudiant, $age, $formation)
-{
-    parent::__construct($nom, $prenom, $sexe);
-    $this->numetudiant = $numetudiant;
-    $this->age = $age;
-    $this->formation = $formation;
-    self::$nbetudiants++;
-}
+    {
+        parent::__construct($nom, $prenom, $sexe);
+        $this->numetudiant = $numetudiant;
+        $this->age = $age;
+        $this->formation = $formation;
+        self::$nbetudiants++;
+    }
 
     /**
      * @return mixed
@@ -220,7 +219,7 @@ class Etudiant extends Individu
      */
     public function getAge()
     {
-        return $this->age.'<br>';
+        return $this->age . '<br>';
     }
 
     /**
@@ -228,12 +227,9 @@ class Etudiant extends Individu
      */
     public function setAge($age): void
     {
-        if (is_int($age))
-        {
+        if (is_int($age)) {
             $this->age = $age;
-        }
-        else
-        {
+        } else {
             echo 'ERROR';
         }
     }
@@ -272,27 +268,21 @@ class Etudiant extends Individu
 
     public function travailler($nombreheures)
     {
-        if ($this->age >= 18)
-        {
+        if ($this->age >= 18) {
             $this->setRevenu($this->getRevenu() + (9.5 * $nombreheures));
-            $html = 'L\'individu '.$this->getNom().' '.$this->getPrenom().' a travaillé '.$nombreheures.' heures. <br>';
-        }
-        else
-        {
-            $this->setRevenu($this->getRevenu() + ((9.5*0.8) * $nombreheures));
-            $html = 'L\'individu '.$this->getNom().' '.$this->getPrenom().' a travaillé '.$nombreheures.' heures. <br>';
+            $html = 'L\'individu ' . $this->getNom() . ' ' . $this->getPrenom() . ' a travaillé ' . $nombreheures . ' heures. <br>';
+        } else {
+            $this->setRevenu($this->getRevenu() + ((9.5 * 0.8) * $nombreheures));
+            $html = 'L\'individu ' . $this->getNom() . ' ' . $this->getPrenom() . ' a travaillé ' . $nombreheures . ' heures. <br>';
         }
         return $html;
     }
 
     public function evaluer($noteExamen)
     {
-        if ($noteExamen >= 10)
-        {
+        if ($noteExamen >= 10) {
             $this->setResultat('Reçu(e) <br>');
-        }
-        else
-        {
+        } else {
             $this->setResultat('Ajourné(e) <br>');
         }
         return $this->getResultat();
@@ -329,14 +319,14 @@ final class Etudiant_MMI extends Etudiant
     // Retourne le nom, le prénom et l'option de l'étudiant
     public function quelleOption()
     {
-        $html = 'Bonjour, je m\'apppelle '.$this->getNom().' '.$this->getPrenom().', je suis en option '.$this->getOption().'. <br>';
+        $html = 'Bonjour, je m\'apppelle ' . $this->getNom() . ' ' . $this->getPrenom() . ', je suis en option ' . $this->getOption() . '. <br>';
         return $html;
     }
 
     // Retourne une phrase simple comprenant le nom et le prénom de l'individu
     public function sePresente()
     {
-        $html = 'Bonjour, je m\'apppelle '.$this->getNom().' '.$this->getPrenom().'et je suis en MMI. <br>';
+        $html = 'Bonjour, je m\'apppelle ' . $this->getNom() . ' ' . $this->getPrenom() . 'et je suis en MMI. <br>';
         return $html;
     }
 }
