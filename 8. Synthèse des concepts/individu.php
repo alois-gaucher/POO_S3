@@ -1,0 +1,177 @@
+<?php
+/**
+ * Copyright (c) Aloïs GAUCHER 2020.
+ * https://alois-gaucher.fr/ - https://github.com/couquino
+ */
+
+
+interface iHumain
+{
+    public function travailler($nombreheures);
+    public function reposer($nombrejours);
+    public function sePresente();
+}
+
+class Individu
+{
+    private $nom;
+    private $prenom;
+    private $sexe;
+    private $revenu = 0;
+    private $conges = 0;
+
+    /**
+     * Individu constructor.
+     * @param $nom
+     * @param $prenom
+     * @param $sexe
+     */
+    public function __construct($nom, $prenom, $sexe)
+    {
+        $this->nom = $nom;
+        $this->prenom = $prenom;
+        if ($sexe is_string('H'))
+        {
+            $this->setSexe($sexe);
+        }
+        if ($sexe is_string('F'))
+        {
+            $this->setSexe($sexe);
+        }
+        else return 'ERROR';
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @param mixed $nom
+     */
+    public function setNom($nom): void
+    {
+        $this->nom = $nom;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * @param mixed $prenom
+     */
+    public function setPrenom($prenom): void
+    {
+        $this->prenom = $prenom;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSexe()
+    {
+        return $this->sexe;
+    }
+
+    /**
+     * @param mixed $sexe
+     */
+    public function setSexe($sexe): void
+    {
+        $this->sexe = $sexe;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRevenu(): int
+    {
+        return $this->revenu;
+    }
+
+    /**
+     * @param int $revenu
+     */
+    public function setRevenu(int $revenu): void
+    {
+        $this->revenu = $revenu;
+    }
+
+    /**
+     * @return int
+     */
+    public function getConges(): int
+    {
+        return $this->conges;
+    }
+
+    /**
+     * @param int $conges
+     */
+    public function setConges(int $conges): void
+    {
+        $this->conges = $conges;
+    }
+
+    // Incrémente la variable $revenu en fonction du nombre d'heures travaillées
+    public function travailler($nombreheures)
+    {
+        $this->setRevenu($this->revenu + 9.5 * $nombreheures);
+        $html = 'L\'individu '.$this->getNom().$this->getPrenom().' a travaillé '.$nombreheures.' heures.';
+        return $html;
+    }
+
+    // Incrémente la variable $conges en fonction du nombre de jours de congés
+    public function reposer($nombrejours)
+    {
+        $this->setConges($this->conges + $nombrejours);
+        $html = 'L\'individu '.$this->getNom().$this->getPrenom().' s\'est reposé '.$nombrejours.' jours.';
+        return $html;
+    }
+
+    // Retourne une phrase simple comprenant le nom et le prénom de l'individu
+    public function sePresente()
+    {
+        $html = 'Bonjour, je m\'apppelle '.$this->getNom().$this->getPrenom().'.';
+        return $html;
+    }
+
+    // Réinitialise le revenu de l'individu
+    public function RAZRevenu()
+    {
+        $this->setRevenu(0);
+        $html = 'Les revenus ont été réinitialisés';
+        return $html;
+    }
+
+    // Réinitialise les congés de l'individu
+    public function RAZConges()
+    {
+        $this->setConges(0);
+        $html = 'Les congés ont été réinitialisés';
+        return $html;
+    }
+
+    // Retourne une phrase simple contenant le nom, le prénom ainsi que les revenus de l'individu
+    public function DeclareSalaire()
+    {
+        $html = 'Je suis '.$this->getNom().$this->getPrenom().' et j\'ai gagné '.$this->getRevenu().' Cette année';
+        return $html;
+    }
+
+}
+
+class Etudiant extends Individu
+{
+
+}
+
+?>
