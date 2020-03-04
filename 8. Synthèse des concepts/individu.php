@@ -138,7 +138,7 @@ abstract class Individu implements iHumain
     public function travailler($nombreheures)
     {
         $this->setRevenu($this->getRevenu() + 9.5 * $nombreheures);
-        $html = 'L\'individu '.$this->getNom().$this->getPrenom().' a travaillé '.$nombreheures.' heures.';
+        $html = 'L\'individu '.$this->getNom().' '.$this->getPrenom().' a travaillé '.$nombreheures.' heures.';
         return $html;
     }
 
@@ -146,14 +146,14 @@ abstract class Individu implements iHumain
     public function reposer($nombrejours)
     {
         $this->setConges($this->getConges() + $nombrejours);
-        $html = 'L\'individu '.$this->getNom().$this->getPrenom().' s\'est reposé '.$nombrejours.' jours.';
+        $html = 'L\'individu '.$this->getNom().' '.$this->getPrenom().' s\'est reposé '.$nombrejours.' jours.';
         return $html;
     }
 
     // Retourne une phrase simple comprenant le nom et le prénom de l'individu
     public function sePresente()
     {
-        $html = 'Bonjour, je m\'apppelle '.$this->getNom().$this->getPrenom().'.';
+        $html = 'Bonjour, je m\'apppelle '.$this->getNom().' '.$this->getPrenom().'.';
         return $html;
     }
 
@@ -176,7 +176,7 @@ abstract class Individu implements iHumain
     // Retourne une phrase simple contenant le nom, le prénom ainsi que les revenus de l'individu
     public function DeclareSalaire()
     {
-        $html = 'Je suis '.$this->getNom().$this->getPrenom().' et j\'ai gagné '.$this->getRevenu().' Cette année';
+        $html = 'Je suis '.$this->getNom().' '.$this->getPrenom().' et j\'ai gagné '.$this->getRevenu().' Cette année';
         return $html;
     }
 
@@ -273,12 +273,12 @@ class Etudiant extends Individu
         if ($this->age >= 18)
         {
             $this->setRevenu($this->getRevenu() + (9.5 * $nombreheures));
-            $html = 'L\'individu '.$this->getNom().$this->getPrenom().' a travaillé '.$nombreheures.' heures.';
+            $html = 'L\'individu '.$this->getNom().' '.$this->getPrenom().' a travaillé '.$nombreheures.' heures.';
         }
         else
         {
             $this->setRevenu($this->getRevenu() + ((9.5*0.8) * $nombreheures));
-            $html = 'L\'individu '.$this->getNom().$this->getPrenom().' a travaillé '.$nombreheures.' heures.';
+            $html = 'L\'individu '.$this->getNom().' '.$this->getPrenom().' a travaillé '.$nombreheures.' heures.';
         }
         return $html;
     }
