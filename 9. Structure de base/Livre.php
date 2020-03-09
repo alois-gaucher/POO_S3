@@ -22,10 +22,11 @@ abstract class Livre {
     }
 
     public function addAuteur($auteur) {
-        if (is_string($auteur)) {
-            array_push($auteur);
-        }
-        else echo 'ERREUR';
+        array_push($this->auteurs, $auteur);
+    }
+
+    public function supprimerAuteur($auteur) {
+        array_keys($this->auteurs, $auteur);
     }
 
     public function afficherLivre() {
