@@ -6,11 +6,16 @@
 
 
 final class BandeDessinees extends Livre {
-    protected $dessinateurs = array();
-    protected $auteurs = array();
+    protected $dessinateurs;
+    protected $auteurs;
+
+    public function __construct($titre, $nb_pages)
+    {
+        parent::__construct($titre, $nb_pages);
+    }
 
     public function addDessinateur($dessinateur) {
-            array_push($dessinateurs, $dessinateur);
+        $this->dessinateurs[] = $dessinateur;
     }
 
     public function afficheLivre() {

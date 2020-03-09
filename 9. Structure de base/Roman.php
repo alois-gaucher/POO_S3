@@ -7,7 +7,12 @@
 final class Roman extends Livre {
     protected $auteurs = array();
 
+    public function __construct($titre, $nb_pages)
+    {
+        parent::__construct($titre, $nb_pages);
+    }
+
     public function addAuteur($auteurRoman) {
-        array_push($auteurs, $auteurRoman);
+        array_push($this->auteurs, $auteurRoman);
     }
 }
