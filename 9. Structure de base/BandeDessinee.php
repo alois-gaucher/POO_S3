@@ -16,6 +16,9 @@ final class BandeDessinees extends Livre {
 
     public function addDessinateur($dessinateur) {
         $this->dessinateurs[] = $dessinateur;
+        $html = 'L\'auteur '.$dessinateur.' a été ajouté à la liste des dessinateurs.<br>';
+        return $html;
+
     }
 
     public function afficheLivre() {

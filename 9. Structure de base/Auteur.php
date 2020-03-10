@@ -20,4 +20,42 @@ class Auteur extends Artiste {
         $html = 'Je m\'appelle '.$this->prenom.' '.$this->nom.', je suis auteur et je suis né le '.$this->date_naissance.'.<br>';
         return $html;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDateNaissance()
+    {
+        return $this->date_naissance;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    public function nomPrenom()
+    {
+        $html = ''.$this->prenom.''.$this->nom.'';
+        return $html;
+    }
 }
