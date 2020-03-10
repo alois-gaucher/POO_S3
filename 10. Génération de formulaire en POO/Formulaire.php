@@ -39,8 +39,40 @@ class Formulaire
     {
         $champselect = '<select class="browser-default custom-select" name="'.$nom.'" id="'.$nom.'"><option selected>'.$libelle.'</option>';
         foreach ($choix as $key->$value) {
-            $champselect += '<option value="'.$value.'">'.$value.'</option>';
+            $champselect .= '<option value="'.$value.'">'.$value.'</option>';
         };
-        $champselect += '</select>';
-}
+        $champselect .= '</select>';
+    }
+
+    public function ajoutChampChoix($libelle, $type, $nom, $choix)
+    {
+        if ($type = 'checkbox') {
+            $champchoix = '<div class="custom-control custom-checkbox" name="'.$nom.'" id="'.$nom.'">';
+            foreach ($choix as $key->$value) {
+                $champchoix .= '<input type="checkbox" class="custom-control-input" id="'.$nom.'">';
+                $champchoix .= '<label class="custom-control-label" for="'.$nom.'">'.$nom.'</label>';
+            };
+            $champchoix .= '</div>';
+        }
+
+        else if ($type = 'radio')
+        {
+            $champchoix = '<div class="custom-control custom-radio"" name="'.$nom.'" id="'.$nom.'">';
+            foreach ($choix as $key->$value) {
+                $champchoix .= '<input type="radio" class="custom-control-input" id="'.$nom.'">';
+                $champchoix .= '<label class="custom-control-label" for="'.$nom.'">'.$nom.'</label>';
+            };
+            $champchoix .= '</div>';
+        }
+    }
+
+    public function ajoutBoutonSubmit($label)
+    {
+        $boutonsubmit = '<button class="btn btn-primary btn-sm btn-rounded" type="submit">'.$label.'</button>';
+    }
+
+    public function genereFormulaireHTML()
+    {
+        
+    }
 }
