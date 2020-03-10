@@ -43,7 +43,7 @@ class Formulaire
     public function ajoutChampSelect($libelle, $nom, $choix)
     {
         $champselect = '<select class="browser-default custom-select" name="'.$nom.'" id="'.$nom.'"><option selected>'.$libelle.'</option>';
-        foreach ($choix as $key->$value) {
+        foreach ($choix as $value) {
             $champselect .= '<option value="'.$value.'">'.$value.'</option>';
         };
         $champselect .= '</select>';
@@ -54,7 +54,7 @@ class Formulaire
     {
         if ($type = 'checkbox') {
             $champchoix = '<div class="custom-control custom-checkbox" name="'.$nom.'" id="'.$nom.'">';
-            foreach ($choix as $key->$value) {
+            foreach ($choix as $value) {
                 $champchoix .= '<input type="checkbox" class="custom-control-input" id="'.$nom.'">';
                 $champchoix .= '<label class="custom-control-label" for="'.$nom.'">'.$nom.'</label>';
             };
@@ -64,7 +64,7 @@ class Formulaire
         else if ($type = 'radio')
         {
             $champchoix = '<div class="custom-control custom-radio"" name="'.$nom.'" id="'.$nom.'">';
-            foreach ($choix as $key->$value) {
+            foreach ($choix as $value) {
                 $champchoix .= '<input type="radio" class="custom-control-input" id="'.$nom.'">';
                 $champchoix .= '<label class="custom-control-label" for="'.$nom.'">'.$nom.'</label>';
             };
