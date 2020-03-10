@@ -30,7 +30,7 @@ include('Formulaire.php');
         <div class="col-md-3">
             <?php
                 echo '<h1 class="title">Un premier formulaire</h1>';
-                $form1 = new Formulaire('traitement1.php', 'post', 'form1');
+                $form1 = new Formulaire('traitement1.php', 'post', 'form1',);
                 $form1->ajoutChampSimple('Nom', 'text', 'nom');
                 $form1->ajoutChampSimple('Prénom', 'text', 'prenom');
                 $form1->ajoutChampChoix('Sexe', 'radio', 'sexe', array('H' => 'Homme', 'F' => 'Femme'));
@@ -42,7 +42,7 @@ include('Formulaire.php');
         <div class="col-md-6">
             <?php
                 echo '<h1>Un deuxième formulaire</h1>';
-                $form2 = new Formulaire('traitement2.php', 'get', 'form2');
+                $form2 = new Formulaire('traitement2.php', 'get', 'form2',);
                 $form2->ajoutChampSimple('Login', 'email', 'login', 'login', 'form-control');
                 $form2->ajoutChampSimple('Mot de passe', 'password', 'password');
                 $form2->ajoutBoutonSubmit('Se connecter');
@@ -52,7 +52,7 @@ include('Formulaire.php');
         <div class="col-md-3">
             <?php
                 echo '<h1>Un troisième formulaire</h1>';
-                $form3 = new Formulaire('traitement3.php', 'post', 'form3');
+                $form3 = new Formulaire('traitement3.php', 'post', 'form3',);
                 $form3->ajoutChampSimple('Nom', 'text', 'nom');
                 $form3->ajoutChampSimple('Prénom', 'text', 'prenom');
                 $form3->ajoutChampDate('Date de naissance', 'datenaissance');

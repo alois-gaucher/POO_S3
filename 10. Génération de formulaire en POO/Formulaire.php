@@ -9,20 +9,23 @@ class Formulaire
     protected $action;
     protected $methode;
     protected $nom;
+    protected $contenu;
 
     /**
      * Formulaire constructor.
      * @param $action
      * @param $methode
      * @param $nom
+     * @param $contenu
      */
-    public function __construct($action, $methode, $nom)
+    public function __construct($action, $methode, $nom, $contenu)
     {
         $this->action = $action;
         $this->methode = $methode;
         $this->nom = $nom;
 
         $form = '<form action="'.$action.'" method="'.$methode.'" name="'.$nom.'" id="'.$nom.'">';
+        $this->contenu .= $form;
     }
 
     public function ajoutChampSimple($libelle, $type, $nom)
@@ -33,6 +36,8 @@ class Formulaire
         else {
             $chamsimple = '<div class="md-form"><input type="' . $type . '" id="' . $nom . '" class="form-control"><label for="' . $nom . '">' . $libelle . '</label></div>';
         }
+        $this->contenu .= $hampsimple;
+
     }
 
     public function ajoutChampSelect($libelle, $nom, $choix)
@@ -42,6 +47,7 @@ class Formulaire
             $champselect .= '<option value="'.$value.'">'.$value.'</option>';
         };
         $champselect .= '</select>';
+        $this->contenu .= $champselect;
     }
 
     public function ajoutChampChoix($libelle, $type, $nom, $choix)
@@ -64,15 +70,19 @@ class Formulaire
             };
             $champchoix .= '</div>';
         }
+
+        $this->contenu .= $champchoix;
     }
 
     public function ajoutBoutonSubmit($label)
     {
         $boutonsubmit = '<button class="btn btn-primary btn-sm btn-rounded" type="submit">'.$label.'</button>';
+        $this->contenu .= $boutonsubmit;
     }
 
     public function genereFormulaireHTML()
     {
-        
+        $this->contenu .= '</form>';
+        return $this->contenu;
     }
 }
