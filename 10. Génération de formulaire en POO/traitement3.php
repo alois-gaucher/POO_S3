@@ -11,7 +11,7 @@
     <?php
     echo '<li> Nom : '.$_POST['nom'].'</li>';
     echo '<li> Prénom : '.$_POST['prenom'].'</li>';
-    echo '<li> Date de naissance : '.$_POST['datenaissance_jour'].'/'.$_POST['datenaissance_mois'].'/'.$_POST['datenaissance_annee'].'</li>';
+    echo '<li> Date de naissance : '.$_POST['datenaissance'].'</li>';
     ?>
 </ul>
 </body>

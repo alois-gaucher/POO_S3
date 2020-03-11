@@ -44,7 +44,7 @@ class Formulaire
     {
         $champselect = '<select class="browser-default custom-select" name="'.$nom.'" id="'.$nom.'"><option selected>'.$libelle.'</option>';
         foreach ($choix as $value) {
-            $champselect .= '<option value="'.$value.'">'.$value.'</option>';
+            $champselect .= '<option value="'.$value.'" for="'.$nom.'">'.$value.'</option>';
         };
         $champselect .= '</select>';
         $this->contenu .= $champselect;
