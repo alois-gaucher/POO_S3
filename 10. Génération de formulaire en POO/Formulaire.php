@@ -18,7 +18,7 @@ class Formulaire
      * @param $nom
      * @param $contenu
      */
-    public function __construct($action, $methode, $nom, $contenu)
+    public function __construct($action, $methode, $nom)
     {
         $this->action = $action;
         $this->methode = $methode;
@@ -30,13 +30,13 @@ class Formulaire
 
     public function ajoutChampSimple($libelle, $type, $nom)
     {
-        if ($type = 'email'){
-            $chamsimple = '<div class="md-form"><i class="fas fa-envelope prefix"></i><input type="'.$type.'" id="'.$nom.'" class="form-control validate"><label for="'.$nom.' "data-error="wrong" data-success="right">'.$libelle.'</label></div>';
+        if ($type == 'email'){
+            $champsimple = '<div class="md-form"><i class="fas fa-envelope prefix"></i><input type="'.$type.'" name="'.$nom.'" id="'.$nom.'" class="form-control validate"><label for="'.$nom.' "data-error="wrong" data-success="right">'.$libelle.'</label></div>';
         }
         else {
-            $chamsimple = '<div class="md-form"><input type="' . $type . '" id="' . $nom . '" class="form-control"><label for="' . $nom . '">' . $libelle . '</label></div>';
+            $champsimple = '<div class="md-form"><input type="'.$type.'" name="'.$nom.'" id="'.$nom.'" class="form-control"><label for="'.$nom.'">'.$libelle.'</label></div>';
         }
-        $this->contenu .= $hampsimple;
+        $this->contenu .= $champsimple;
 
     }
 
@@ -55,8 +55,8 @@ class Formulaire
         if ($type = 'checkbox') {
             $champchoix = '<div class="custom-control custom-checkbox" name="'.$nom.'" id="'.$nom.'">';
             foreach ($choix as $value) {
-                $champchoix .= '<input type="checkbox" class="custom-control-input" id="'.$nom.'">';
                 $champchoix .= '<label class="custom-control-label" for="'.$nom.'">'.$nom.'</label>';
+                $champchoix .= '<input type="checkbox" class="custom-control-input" id="'.$nom.'">';
             };
             $champchoix .= '</div>';
         }
@@ -72,6 +72,13 @@ class Formulaire
         }
 
         $this->contenu .= $champchoix;
+    }
+
+    public function ajoutChampDate($libelle, $nom) {
+        $champdate = '<script>$(\'.datepicker\').pickadate({selectYears: true, selectMonths: true, selectDays: true,})</script>';
+        $champdate .= '<input placeholder="Date" type="text" name="'.$nom.'" id="'.$nom.'" class="form-control datepicker">';
+        $champdate .= '<label for="date-picker-example">'.$libelle.'</label>';
+        $this->contenu .= $champdate;
     }
 
     public function ajoutBoutonSubmit($label)

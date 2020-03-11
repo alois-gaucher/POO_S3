@@ -30,7 +30,7 @@ include('Formulaire.php');
         <div class="col-md-3">
             <?php
                 echo '<h1 class="title">Un premier formulaire</h1>';
-                $form1 = new Formulaire('traitement1.php', 'post', 'form1',);
+                $form1 = new Formulaire('traitement1.php', 'post', 'form1');
                 $form1->ajoutChampSimple('Nom', 'text', 'nom');
                 $form1->ajoutChampSimple('Prénom', 'text', 'prenom');
                 $form1->ajoutChampChoix('Sexe', 'radio', 'sexe', array('H' => 'Homme', 'F' => 'Femme'));
