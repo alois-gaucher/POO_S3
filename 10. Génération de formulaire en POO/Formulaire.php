@@ -52,21 +52,21 @@ class Formulaire
 
     public function ajoutChampChoix($libelle, $type, $nom, $choix)
     {
-        if ($type = 'checkbox') {
-            $champchoix = '<div class="custom-control custom-checkbox" name="'.$nom.'" id="'.$nom.'">';
-            foreach ($choix as $value) {
-                $champchoix .= '<label class="custom-control-label" for="'.$nom.'">'.$nom.'</label>';
-                $champchoix .= '<input type="checkbox" class="custom-control-input" id="'.$nom.'">';
+        if ($type == 'checkbox') {
+            $champchoix = '<div class="custom-control custom-checkbox custom-control-inline" name="'.$nom.'" id="'.$nom.'">';
+            foreach ($choix as $data) {
+                $champchoix .= '<input type="checkbox" class="custom-control-input" value="'.$data.'" name="'.$nom.'">';
+                $champchoix .= '<label class="custom-control-label" for="'.$data.'">'.$data.'</label>';
             };
             $champchoix .= '</div>';
         }
 
-        else if ($type = 'radio')
+        else if ($type == 'radio')
         {
-            $champchoix = '<div class="custom-control custom-radio"" name="'.$nom.'" id="'.$nom.'">';
-            foreach ($choix as $value) {
-                $champchoix .= '<input type="radio" class="custom-control-input" id="'.$nom.'">';
-                $champchoix .= '<label class="custom-control-label" for="'.$nom.'">'.$nom.'</label>';
+            $champchoix = '<div class="custom-control custom-radio" name="'.$nom.'" id="'.$nom.'">';
+            foreach ($choix as $data) {
+                $champchoix .= '<input type="radio" class="custom-control-input" value="'.$data.'" name="'.$nom.'">';
+                $champchoix .= '<label class="custom-control-label" for="'.$data.'">'.$data.'</label>';
             };
             $champchoix .= '</div>';
         }
@@ -75,9 +75,10 @@ class Formulaire
     }
 
     public function ajoutChampDate($libelle, $nom) {
-        $champdate = '<script>$(\'.datepicker\').pickadate({selectYears: true, selectMonths: true, selectDays: true,})</script>';
-        $champdate .= '<input placeholder="Date" type="text" name="'.$nom.'" id="'.$nom.'" class="form-control datepicker">';
-        $champdate .= '<label for="date-picker-example">'.$libelle.'</label>';
+        $champdate = '<div class="md-form">';
+        $champdate .= '<input type="date" name="'.$nom.'" id="'.$nom.'" class="form-control">';
+        $champdate .= '<label for="jour">'.$libelle.'</label>';
+        $champdate .= '</div>';
         $this->contenu .= $champdate;
     }
 
