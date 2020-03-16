@@ -15,7 +15,7 @@
     if ($_POST['sexe'] === 'H') { $sexe = 'Homme'; }
     else {$sexe = 'Femme';}
 
-    echo '<li> Sexe : '.$_POST['sexe'].'</li>';
+    echo '<li> Sexe : '.$sexe.'</li>';
     $villes = array(1 => 'Troyes', 2 => 'Dijon', 3 => 'Lille');
     echo '<li> Ville : '.$villes[$_POST['villes']].'</li>';
     ?>

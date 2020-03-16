@@ -65,8 +65,8 @@ class Formulaire
         {
             $champchoix = '<div id="'.$nom.'">';
             foreach ($choix as $key => $value) {
-                $champchoix .= '<input type="radio"  value="'.$key.'" name="'.$nom.'">';
-                $champchoix .= '<label  for="'.$key.'">'.$value.'</label>';
+                $champchoix .= '<input type="radio" value="'.$key.'" name="'.$nom.'">';
+                $champchoix .= '<label for="'.$key.'">'.$value.'</label>';
             };
             $champchoix .= '</div>';
         }
