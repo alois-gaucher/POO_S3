@@ -53,20 +53,20 @@ class Formulaire
     public function ajoutChampChoix($libelle, $type, $nom, $choix)
     {
         if ($type == 'checkbox') {
-            $champchoix = '<div class="custom-control custom-checkbox custom-control-inline" name="'.$nom.'" id="'.$nom.'">';
+            $champchoix = '<div id="'.$nom.'">';
             foreach ($choix as $key => $value) {
-                $champchoix .= '<input type="checkbox" class="custom-control-input" value="'.$value.'" name="'.$key.'">';
-                $champchoix .= '<label class="custom-control-label" for="'.$value.'">'.$key.'</label>';
+                $champchoix .= '<input type="checkbox"  value="'.$key.'" name="'.$nom.'">';
+                $champchoix .= '<label  for="'.$key.'">'.$value.'</label>';
             };
             $champchoix .= '</div>';
         }
 
-        else if ($type == 'radio')
+        if ($type == 'radio')
         {
-            $champchoix = '<div class="custom-control custom-radio" name="'.$nom.'" id="'.$nom.'">';
+            $champchoix = '<div id="'.$nom.'">';
             foreach ($choix as $key => $value) {
-                $champchoix .= '<input type="radio" class="custom-control-input" for="'.$name.'" value="'.$value.'" name="'.$key.'">';
-                $champchoix .= '<label class="custom-control-label" for="'.$key.'">'.$value.'</label>';
+                $champchoix .= '<input type="radio"  value="'.$key.'" name="'.$nom.'">';
+                $champchoix .= '<label  for="'.$key.'">'.$value.'</label>';
             };
             $champchoix .= '</div>';
         }
