@@ -42,11 +42,11 @@ class Formulaire
 
     public function ajoutChampSelect($libelle, $nom, $choix)
     {
-        $champselect = '<select class="browser-default custom-select" name="'.$nom.'" id="'.$nom.'"><option selected>'.$libelle.'</option>';
-        foreach ($choix as $value) {
-            $champselect .= '<option value="'.$value.'" for="'.$nom.'">'.$value.'</option>';
+        $champselect = '<label for '.$nom.'>'.$libelle.'<select class="browser-default custom-select" name="'.$nom.'" id="'.$nom.'">';
+        foreach ($choix as $key => $value) {
+            $champselect .= '<option for="'.$nom.'" value="'.$key.'">'.$value.'</option>';
         };
-        $champselect .= '</select>';
+        $champselect .= '</select></label>';
         $this->contenu .= $champselect;
     }
 

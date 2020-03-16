@@ -34,7 +34,7 @@ include('Formulaire.php');
                 $form1->ajoutChampSimple('Nom', 'text', 'nom');
                 $form1->ajoutChampSimple('Prénom', 'text', 'prenom');
                 $form1->ajoutChampChoix('Sexe', 'radio', 'sexe', array('H' => 'Homme', 'F' => 'Femme'));
-                $form1->ajoutChampSelect('Ville', 'ville', array(1 => 'Troyes', 2 => 'Dijon', 3 => 'Lille'));
+                $form1->ajoutChampSelect('Ville', 'villes', array(1 => 'Troyes', 2 => 'Dijon', 3 => 'Lille'));
                 $form1->ajoutBoutonSubmit('Valider');
                 echo $form1->genereFormulaireHTML();
             ?>
