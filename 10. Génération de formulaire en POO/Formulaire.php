@@ -54,9 +54,9 @@ class Formulaire
     {
         if ($type == 'checkbox') {
             $champchoix = '<div class="custom-control custom-checkbox custom-control-inline" name="'.$nom.'" id="'.$nom.'">';
-            foreach ($choix as $data) {
-                $champchoix .= '<input type="checkbox" class="custom-control-input" value="'.$data.'" name="'.$nom.'">';
-                $champchoix .= '<label class="custom-control-label" for="'.$nom.'">'.$data.'</label>';
+            foreach ($choix as $key => $value) {
+                $champchoix .= '<input type="checkbox" class="custom-control-input" value="'.$value.'" name="'.$key.'">';
+                $champchoix .= '<label class="custom-control-label" for="'.$value.'">'.$key.'</label>';
             };
             $champchoix .= '</div>';
         }
@@ -64,9 +64,9 @@ class Formulaire
         else if ($type == 'radio')
         {
             $champchoix = '<div class="custom-control custom-radio" name="'.$nom.'" id="'.$nom.'">';
-            foreach ($choix as $data) {
-                $champchoix .= '<input type="radio" class="custom-control-input" value="'.$data.'" name="'.$nom.'">';
-                $champchoix .= '<label class="custom-control-label" for="'.$nom.'">'.$data.'</label>';
+            foreach ($choix as $key => $value) {
+                $champchoix .= '<input type="radio" class="custom-control-input" for="'.$name.'" value="'.$value.'" name="'.$key.'">';
+                $champchoix .= '<label class="custom-control-label" for="'.$key.'">'.$value.'</label>';
             };
             $champchoix .= '</div>';
         }
