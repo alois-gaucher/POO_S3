@@ -42,7 +42,7 @@ class Theatre extends SpectacleVivant
         return $html;
     }
 
-    public function addActeur($acteur)
+    public function addActeur($acteur) // TODO: A finir
     {
         array_push($this->acteurs['nom'], $acteur['nom']);
         array_push($this->acteurs['prenom'], $acteur['prenom']);
@@ -52,10 +52,10 @@ class Theatre extends SpectacleVivant
         return $html;
     }
 
-    public function modifierRoleActeur($nom, $role)
+    public function modifierRoleActeur($nom, $role) // TODO: A finir
     {
         $key = array_search($nom, $this->acteurs['role']);
-        $this->acteurs['role'[$key]] = $role; // TODO: A finir
+        $this->acteurs['role'[$key]] = $role;
     }
 
 }
