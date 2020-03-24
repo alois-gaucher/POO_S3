@@ -5,3 +5,8 @@
  */
 
 
+interface iActeur
+{
+    public function __construct($nom, $prenom, $role);
+    public function afficheCv();
+}

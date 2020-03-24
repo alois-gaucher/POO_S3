@@ -8,11 +8,9 @@ class SpectacleVivant extends Spectacle
 {
     protected $type;
 
-    public function __construct($nom, $anneeCreation, $categorieSpectacle, $type)
+    public function __construct($nom, $anneeCreation, $categorieSpectacle)
     {
         parent::__construct($nom, $anneeCreation, $categorieSpectacle);
-        $this->type = $type;
-        settype($this->type,"string");
     }
 
     public function informationsSpectacle()
@@ -20,7 +18,6 @@ class SpectacleVivant extends Spectacle
         $html = 'Nom: '.$this->nom.'<br>';
         $html .= 'Année de création: '.$this->anneeCreation.'<br>';
         $html .= 'Catégorie: '.$this->categorieSpectacle.'<br>';
-        $html .= 'Type: '.$this->type.'<br>';
 
         return $html;
     }

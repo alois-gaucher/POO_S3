@@ -5,3 +5,10 @@
  */
 
 
+interface iTheatre
+{
+    public function __construct($nom, $anneeCreation);
+    public function informationsSpectacle();
+    public function addActeur($acteur);
+    public function modifierRoleActeur($nom, $role);
+}
