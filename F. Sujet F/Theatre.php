@@ -22,7 +22,7 @@ class Theatre extends SpectacleVivant
         {
             $html = 'Nom: '.$this->nom.'<br>';
             $html .= 'Année de création: '.$this->anneeCreation.'<br>';
-            $html .= 'Catégorie: '.$this->categorieSpectacle.'<br>';
+            $html .= 'Catégorie: Vivant<br>';
             $html .= 'Type: Théâtre<br>';
 
             return $html;
@@ -32,24 +32,29 @@ class Theatre extends SpectacleVivant
             $html = 'Type: Théâtre';
             $html .= 'Acteurs: ';
             $html .= '<ul>';
-            foreach ($this->acteurs['nom'] as $value)
-            {
-                $html .= '<li>'.$value.'</li>';
-            };
+            $html .= $this->ajoutActeur();
             $html .= '</ul>';
         }
 
         return $html;
     }
 
-    public function addActeur($acteur) // TODO: A finir
+    public function ajoutActeur() // TODO: A finir
     {
-        array_push($this->acteurs['nom'], $acteur['nom']);
-        array_push($this->acteurs['prenom'], $acteur['prenom']);
-        array_push($this->acteurs['role'], $acteur['role']);
-        $html = 'L\'acteur '.$acteur['nom'].' a été ajouté <br>';
+        $html = '<p>';
+        foreach ($this->acteurs as $acteur)
+        {
+            $html .= $acteur->afficheCv();
+            $html .= '<br>';
+        }
+        $html .= '</p>';
 
         return $html;
+    }
+
+    public function addActeur($acteur) // TODO: A finir
+    {
+        $this->acteurs[] = $acteur;
     }
 
     public function modifierRoleActeur($nom, $role) // TODO: A finir

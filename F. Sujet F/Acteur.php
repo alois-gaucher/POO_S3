@@ -28,5 +28,7 @@ final class Acteur
         $html = 'Nom: '.$this->nom.'<br>';
         $html .= 'Prénom: '.$this->prenom.'<br>';
         $html .= 'Rôle: '.$this->role.'<br>';
+
+        return $html;
     }
 }
