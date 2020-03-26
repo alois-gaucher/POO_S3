@@ -23,6 +23,8 @@ abstract class Spectacle // Création de la classe Spectacle
         settype($this->nom, "string");
         settype($this->anneeCreation, "integer");
         settype($this->categorieSpectacle, "string");
+
+        $this->nbOeuvre++;
     }
 
     /**

@@ -13,7 +13,6 @@ class Theatre extends SpectacleVivant
     {
         $this->nom = $nom;
         $this->anneeCreation = $anneeCreation;
-        $this->acteurs = settype($this->acteurs, "Array");
     }
 
     public function informationsSpectacle()
@@ -57,7 +56,7 @@ class Theatre extends SpectacleVivant
         $this->acteurs[] = $acteur;
     }
 
-    public function modifierRoleActeur($nom, $role) // TODO: A finir
+    public function modifierRoleActeur($nom, $role) // TODO: A faire
     {
         $key = array_search($nom, $this->acteurs['role']);
         $this->acteurs['role'[$key]] = $role;
