@@ -4,6 +4,12 @@
  * https://alois-gaucher.fr/ - https://github.com/couquino
  */
 
+interface iActeur
+{
+    public function __construct($nom, $prenom, $role);
+    public function afficheCv();
+}
+
 final class Acteur
 {
     protected $nom;
