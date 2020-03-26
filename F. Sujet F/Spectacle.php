@@ -9,7 +9,7 @@ abstract class Spectacle // Création de la classe Spectacle
     protected $nom;
     protected $anneeCreation;
     protected $categorieSpectacle;
-    private $nbOeuvre;
+    static $nbOeuvre = 0;
 
     /**
      * Spectacle constructor.
@@ -24,7 +24,7 @@ abstract class Spectacle // Création de la classe Spectacle
         settype($this->anneeCreation, "integer");
         settype($this->categorieSpectacle, "string");
 
-        $this->nbOeuvre++;
+        self::$nbOeuvre++;
     }
 
     /**
@@ -41,15 +41,9 @@ abstract class Spectacle // Création de la classe Spectacle
      */
     public function getNbSpectacle()
     {
-        return $this->nbOeuvre;
-    }
-
-    /**
-     * @param mixed $nbOeuvre
-     */
-    public function setNbSpectacle($nbOeuvre): void
-    {
-        $this->nbOeuvre = $nbOeuvre;
+        $html = 'Nombre d\'oeuvres: '.self::$nbOeuvre.'';
+        
+        return $html;
     }
 
 }

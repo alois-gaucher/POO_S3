@@ -17,33 +17,23 @@ class Theatre extends SpectacleVivant
 
     public function informationsSpectacle()
     {
-        if (empty($acteurs))
-        {
             $html = 'Nom: '.$this->nom.'<br>';
             $html .= 'Année de création: '.$this->anneeCreation.'<br>';
             $html .= 'Catégorie: Vivant<br>';
             $html .= 'Type: Théâtre<br>';
-
-            return $html;
-        }
-
-        else {
-            $html = 'Type: Théâtre';
-            $html .= 'Acteurs: ';
+            $html .= 'Acteurs:';
             $html .= '<ul>';
-            $html .= $this->ajoutActeur();
+            $html .= $this->afficheActeurs();
             $html .= '</ul>';
-        }
-
         return $html;
     }
 
-    public function ajoutActeur() // TODO: A finir
+    public function afficheActeurs() // TODO: A finir
     {
         $html = '<p>';
-        foreach ($this->acteurs as $acteur)
+        foreach ($this->acteurs as $item)
         {
-            $html .= $acteur->afficheCv();
+            $html .= $item->afficheCv($this->getActeurs());
             $html .= '<br>';
         }
         $html .= '</p>';
@@ -51,15 +41,24 @@ class Theatre extends SpectacleVivant
         return $html;
     }
 
-    public function addActeur($acteur) // TODO: A finir
+    public function getActeurs()
+    {
+        return $this->acteurs;
+    }
+
+    public function addActeur($acteur)
     {
         $this->acteurs[] = $acteur;
     }
 
-    public function modifierRoleActeur($nom, $role) // TODO: A faire
+    public function modifierRoleActeur($nom, $role)
     {
-        $key = array_search($nom, $this->acteurs['role']);
-        $this->acteurs['role'[$key]] = $role;
+        $mr = $this->acteurs[array_search($nom,$this->getActeurs())];
+        $mr->setRole($role);
+    }
+
+    public function supprimerActeur($nom) {
+        unset($this->acteurs[array_search($nom,$this->getActeurs())]);
     }
 
 }
